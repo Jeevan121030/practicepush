@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: spring-b-doc
+
+
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: spring-b-doc
+
+  template:
+    metadata:
+      labels:
+        app: spring-b-doc
+
+    spec:
+      containers:
+        - name: spring-b-docker
+          image: dbjeevan/spring-b-doc:recent
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
